@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+
+public class StacksusingAL {
+    static class Stacks {
+        ArrayList<Integer> st = new ArrayList<>();
+
+        public boolean isEmpty() {
+            return st.size() == 0;
+        }
+
+        public void push(int data) {
+            st.add(data);
+        }
+
+        public int pop() {
+            if (isEmpty()) {
+                return -1;
+            }
+            int top = st.get(st.size() - 1);
+            st.remove(st.size() - 1);
+            return top;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                return -1;
+            }
+            return st.get(st.size() - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Stacks st = new Stacks();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        while (!st.isEmpty()) {
+            System.out.println(st.peek());
+            st.pop();
+        }
+    }
+}
