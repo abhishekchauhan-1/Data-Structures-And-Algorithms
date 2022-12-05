@@ -1,0 +1,65 @@
+public class StacksUsingArrays {
+    static class Stacks {
+        final private int[] arr;
+        final private int size;
+        int rear;
+
+        public Stacks(int size) {
+            arr = new int[size];
+            this.size = size;
+            this.rear = -1;
+        }
+
+        public boolean isEmpty() {
+            return rear == -1;
+        }
+
+        public boolean isFull() {
+            return rear == size - 1;
+        }
+
+        public int getSize() {
+            return size;
+        }
+
+        public void push(int data) {
+            if (isFull()) {
+                System.out.println("Full Stacks");
+                return;
+            }
+            rear++;
+            arr[rear] = data;
+        }
+
+        public int pop() {
+            if (isEmpty()) {
+                System.out.println("Empty Stack");
+                return -1;
+            }
+            int top = arr[rear];
+            rear--;
+            return top;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                System.out.println("Empty Stacks");
+                return -1;
+            }
+            return arr[rear];
+        }
+    }
+
+    public static void main(String[] args) {
+        Stacks st = new Stacks(5);
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        st.push(5);
+        while (!st.isEmpty()) {
+            System.out.println(st.peek());
+            st.pop();
+        }
+    }
+}
